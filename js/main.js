@@ -2,9 +2,9 @@ var mainState = {
     preload: function() { 
         // This function will be executed at the beginning     
         // That's where we load the images and sounds 
-        game.load.spritesheet('plant', 'assets/images/spriteplant.png', 128, 128, 8);
+        game.load.spritesheet('plant', 'assets/spriteplant.png', 128, 128, 8);
         // game.load.image('bkg1', 'assets/images/bkg1.jpg');
-        game.load.image('bkg3', 'assets/images/bkg3.jpg');
+        game.load.image('bkg3', 'assets/bkg3.jpg');
 
     	// game.load.audio('jump', 'assets/audio/jump.wav');
     },
@@ -14,7 +14,7 @@ var mainState = {
         // Here we set up the game, display sprites, etc.  
     	
     	// this.game.stage.backgroundColor = "#FFFFFF";
-    	this.bkg = game.add.tileSprite(0, 0, 200, 800, 'bkg3');
+    	this.bkg = game.add.tileSprite(0, 0, game.width, game.height, 'bkg3');
 
 	    //add and animate plant
 		this.plant = game.add.sprite(650, 275, 'plant');
@@ -26,7 +26,7 @@ var mainState = {
 		jumpTimer = 0;
 
 		//animate sprite
-		this.plant.animations.add('grow', [0, 1, 2, 3, 4, 5, 6, 7], 3, true);
+		this.plant.animations.add('grow', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
 		//resize visible sprite size
 		this.plant.scale.x = 0.65;
 		this.plant.scale.y = 0.65;
