@@ -4,7 +4,7 @@ var mainState = {
         // That's where we load the images and sounds 
         game.load.spritesheet('plant', 'assets/spriteplant.png', 128, 128, 8);
         // game.load.image('bkg1', 'assets/images/bkg1.jpg');
-        game.load.image('bkg3', 'assets/bkg3.jpg');
+        game.load.image('bkg3', 'assets/bkg3.png');
 
     	// game.load.audio('jump', 'assets/audio/jump.wav');
     },
