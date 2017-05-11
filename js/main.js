@@ -2,7 +2,7 @@ var mainState = {
     preload: function() { 
         // This function will be executed at the beginning     
         // That's where we load the images and sounds 
-        game.load.spritesheet('plant', 'assets/images/spriteplant.png', 128, 128, 8);
+        game.load.spritesheet('plant', 'assets/spriteplant.png', 128, 128, 8);
         // game.load.image('bkg6', 'assets/images/bkg6.gif');
     	// game.load.audio('jump', 'assets/audio/jump.wav');
     },
