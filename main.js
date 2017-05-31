@@ -29,76 +29,7 @@ var mainState = {
     	sunflower_states = new Array(18);
     	init_states();
     	print_state();
-    	// to resize visible sprite size
-		// this.plant_seed.scale.x = 1;
-		// this.plant_seed.scale.y = 1;
-
-// this.plant = game.add.sprite(game.width/2, game.height/2);
-
-//     	this.q0 = game.add.sprite(0, 165, 'q0');
-// 		game.physics.enable(this.q0);
-// 		this.q0.collideWorldBounds = true;
-// 		this.q0.animations.add('q0', [0, 1, 2, 3, 4, 5, 6, 7], 8,true);
-		
-
-// 		this.q1 = game.add.sprite(100, 165, 'q1');
-// 		game.physics.enable(this.q1);
-// 		this.q1.collideWorldBounds = true;
-// 		this.q1.animations.add('q1', [0, 1, 2, 3], 8, true);
-
-
-// 		this.q2 = game.add.sprite(200, 165, 'q2');
-// 		game.physics.enable(this.q2);
-// 		this.q2.collideWorldBounds = true;
-// 		this.q2.animations.add('q2', [0, 1, 2, 3], 8, true);
-
-
-// 		this.q3 = game.add.sprite(300, 165, 'q3');
-// 		game.physics.enable(this.q3);
-// 		this.q3.collideWorldBounds = true;
-// 		this.q3.animations.add('q3', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-		
-
-// 		this.q4 = game.add.sprite(400, 165, 'q4');
-// 		game.physics.enable(this.q4);
-// 		this.q4.collideWorldBounds = true;
-// 		this.q4.animations.add('q4', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, true);
-		
-
-// 		this.q5 = game.add.sprite(500, 165, 'q5');
-// 		game.physics.enable(this.q5);
-// 		this.q5.collideWorldBounds = true;
-// 		this.q5.animations.add('q5', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-		
-
-// 		this.q6 = game.add.sprite(600, 165, 'q6');
-// 		game.physics.enable(this.q6);
-// 		this.q6.collideWorldBounds = true;
-// 		this.q6.animations.add('q6', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-		
-
-// 		this.q7 = game.add.sprite(700, 165, 'q7');
-// 		game.physics.enable(this.q7);
-// 		this.q7.collideWorldBounds = true;
-// 		this.q7.animations.add('q7', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-		
-
-// 		this.slowlydying = game.add.sprite(800, 225, 'slowlydying');
-// 		game.physics.enable(this.slowlydying);
-// 		this.slowlydying.collideWorldBounds = true;
-// 		this.slowlydying.animations.add('slowlydying', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-		
-
-// 		this.dying = game.add.sprite(900, 225, 'dying');
-// 		game.physics.enable(this.dying);
-// 		this.dying.collideWorldBounds = true;
-// 		this.dying.animations.add('dying', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-		
-
-// 		this.death = game.add.sprite(1000, 165, 'death');
-// 		game.physics.enable(this.death);
-// 		this.death.collideWorldBounds = true;
-
+    	
 		isOccupied = [];
 		allSprites = [];
 
@@ -124,13 +55,14 @@ var mainState = {
     	this.dock.scale.x = dock_scale;
     	this.dock.scale.y = dock_scale;
 
-    	this.fert = game.add.sprite(4, 2.5, 'fert');
-    	this.fert.scale.x = fert_scale;
-    	this.fert.scale.y = fert_scale;
-    	this.fert.startX = 4;
-    	this.fert.endX = 66;
-    	this.fert.startY = 2.5;
-    	this.fert.endY = 65;
+    	this.seed_inv = game.add.sprite(4, 2.5, 'seed_inv');
+		this.seed_inv.scale.x = seed_inv_scale;
+    	this.seed_inv.scale.y = seed_inv_scale;
+    	this.seed_inv.startX = 4; 
+    	this.seed_inv.endX = 66;  
+    	this.seed_inv.startY = 2.5; 
+    	this.seed_inv.endY = 65;
+
 
     	this.sprinkler = game.add.sprite(66, 2.5, 'sprinkler');
     	this.sprinkler.scale.x = sprinkler_scale;
@@ -148,27 +80,19 @@ var mainState = {
     	this.shovel.startY = 2.5;
     	this.shovel.endY = 65;
 
-
-    	this.seed_inv = game.add.sprite(190, 2.5, 'seed_inv');
-		this.seed_inv.scale.x = seed_inv_scale;
-    	this.seed_inv.scale.y = seed_inv_scale;
-    	this.seed_inv.startX = 190;
-    	this.seed_inv.endX = 248;
-    	this.seed_inv.startY = 2.5;
-    	this.seed_inv.endY = 65;    	
+    	this.fert = game.add.sprite(190, 2.5, 'fert');
+    	this.fert.scale.x = fert_scale;
+    	this.fert.scale.y = fert_scale;
+    	this.fert.startX = 190;
+    	this.fert.endX = 248;
+    	this.fert.startY = 2.5;
+    	this.fert.endY = 65;
 
 
     	game.physics.enable(this.fert, Phaser.Physics.ARCADE);
     	game.physics.enable(this.sprinkler, Phaser.Physics.ARCADE);
     	game.physics.enable(this.shovel, Phaser.Physics.ARCADE);
     	game.physics.enable(this.seed_inv, Phaser.Physics.ARCADE);
-
-		// this.death.animations.add('death', [0, 1, 2, 3, 4, 5, 6, 7], 10 ,true);
-		
-
-		//resize sprite hitbox setSize(width, height, offsetX, offsetY)
-		// this.plant.body.setSize(25,90,50,15);
-
 
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.physics.arcade.checkCollision.right = false;
@@ -220,29 +144,23 @@ var mainState = {
 		    this.sprinkler.inputEnabled = true;
 		    this.shovel.inputEnabled = true;
 		    this.seed_inv.inputEnabled = true;
-		    this.fert.input.enableSnap(65, 160, false, false);
-		    this.sprinkler.input.enableSnap(65, 160, false, false);
-		    this.shovel.input.enableSnap(65, 160, false, false);
-		    this.seed_inv.input.enableSnap(65, 160, false, false);
-    
-	 		
-	    	// this.q0.play('q0');
-	    	// this.q1.play('q1');
-	    	// this.q2.play('q2');
-	    	// this.q3.play('q3');
-	    	// this.q4.play('q4');
-	    	// this.q5.play('q5');
-	    	// this.q6.play('q6');
-	    	// this.q7.play('q7');
-	    	// this.slowlydying.play('slowlydying');
-	    	// this.dying.play('dying');
-	    	// this.death.play('death');
     	}
     },
 
     onUpFert: function() {
     	this.fert.x = this.fert.startX;
     	this.fert.y = this.fert.startY;
+    	
+    	for(var i = 0; i < 10; i++) {
+    		xcoord = (i + 1) * 130; 
+    		if((game.input.mousePointer.x < xcoord) && plantList && plantList[i]) {
+    			index = i;
+    			console.log("index: " + index + "  game.input.mousePointer.x: " + game.input.mousePointer.x);
+    			plantList[index].hasFertilizer = true;
+    			break;
+    		}
+    		// console.log(game.input.mousePointer.x + " < " + xcoord + "	" + "plant_at_x: " + plant_at_x + " " + isOccupied[i])
+    	}
     },
 
 	onUpSprinkler: function () {
@@ -275,8 +193,8 @@ var mainState = {
     			plantList[index].isWatered = true;
     			allSprites[i].destroy();
     			isOccupied[i] = false;
+    			delete plantList[i];
     			break;
-    		
     		}
     		// console.log(game.input.mousePointer.x + " < " + xcoord + "	" + "plant_at_x: " + plant_at_x + " " + isOccupied[i])
     	}
@@ -326,9 +244,11 @@ var mainState = {
 
     updateStates: function() {
     	for(var i = 0; i < plantList.length; i++) {
-    		watered = plantList[i].isWatered ? 1:0
-    		plantList[i].state = sunflower_states[plantList[i].state][input_token(0, watered, 0, 0)]
-    		plantList[i].isWatered = 0;
+    		if(plantList[i]) {
+    			watered = plantList[i].isWatered ? 1:0
+	    		plantList[i].state = sunflower_states[plantList[i].state][input_token(0, watered, 0, 0)]
+	    		plantList[i].isWatered = 0;	
+    		}
     	}
 
     	for(var i = 0; i< allSprites.length; i++) {
@@ -337,98 +257,100 @@ var mainState = {
 
     	for(var i = 0; i < plantList.length; i++) {
 
-    		this.sprite = game.add.sprite(plantList[i].xLocation, 165, this.get_sprite(plantList[i].state));
-			game.physics.enable(this.sprite);
-			this.sprite.collideWorldBounds = true;
-			allSprites.push(this.sprite);
-			
-			if(plantList[i].state == 1 || plantList[i].state == 2) {
-				this.sprite.animations.add('q1', [0, 1, 2, 3], 8, true);
-				this.sprite.play('q1');
+    		if(plantList[i]) {
+
+	    		this.sprite = game.add.sprite(plantList[i].xLocation, 165, this.get_sprite(plantList[i].state));
+				game.physics.enable(this.sprite);
+				this.sprite.collideWorldBounds = true;
+				allSprites.push(this.sprite);
+				
+				if(plantList[i].state == 1 || plantList[i].state == 2) {
+					this.sprite.animations.add('q1', [0, 1, 2, 3], 8, true);
+					this.sprite.play('q1');
+				}
+				else if(plantList[i].state == 8) {
+					this.sprite.animations.add('q8', [0, 1, 2, 3], 5, true);
+					this.sprite.play('q8');
+				}
+				else if(plantList[i].state == 9) {
+					this.sprite.animations.add('q9', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+					this.sprite.play('q9');
+				}
+				else if(plantList[i].state == 4) {
+					this.sprite.animations.add('q4', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, true);
+					this.sprite.play('q4');
+				}
+				else if(plantList[i].state == 17) {
+					this.sprite.animations.add('q17', [0], 8, true);	
+					this.sprite.play('q17');
+				}
+				else if(plantList[i].state == 10 ) {
+					this.sprite.animations.add('q0', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+					this.sprite.play('q0');
+
+		    		this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+				}
+				else if(plantList[i].state == 11 ) {
+					this.sprite.animations.add('q1', [0, 1, 2, 3], 8, true);
+					this.sprite.play('q1');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+				}
+				else if(plantList[i].state == 12 ) {
+					this.sprite.animations.add('q2', [0, 1, 2, 3], 8, true);
+					this.sprite.play('q2');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+				}
+				else if(plantList[i].state == 13 ) {
+					this.sprite.animations.add('q3', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+					this.sprite.play('q3');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+
+				}else if(plantList[i].state == 14 ) {
+					this.sprite.animations.add('q4', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, true);
+					this.sprite.play('q4');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+
+				}else if(plantList[i].state == 15 ) {
+					this.sprite.animations.add('q5', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+					this.sprite.play('q5');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+
+				}else if(plantList[i].state == 16 ) {
+					this.sprite.animations.add('q6', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+					this.sprite.play('q6');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+
+				}
+				else {
+					this.sprite.animations.add('q0', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+					this.sprite.play('q0');
+
+					this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
+					game.physics.enable(this.warning);
+					allSprites.push(this.warning);
+
+				}
 			}
-			else if(plantList[i].state == 8) {
-				this.sprite.animations.add('q8', [0, 1, 2, 3], 5, true);
-				this.sprite.play('q8');
-			}
-			else if(plantList[i].state == 9) {
-				this.sprite.animations.add('q9', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-				this.sprite.play('q9');
-			}
-			else if(plantList[i].state == 4) {
-				this.sprite.animations.add('q4', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, true);
-				this.sprite.play('q4');
-			}
-			else if((plantList[i].state == 17)) {
-				this.sprite.animations.add('q17', [0], 8, true);	
-				this.sprite.play('q17');
-			}
-			else if(plantList[i].state == 10 ) {
-				this.sprite.animations.add('q0', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-				this.sprite.play('q0');
-
-	    		this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-			}
-			else if(plantList[i].state == 11 ) {
-				this.sprite.animations.add('q1', [0, 1, 2, 3], 8, true);
-				this.sprite.play('q1');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-			}
-			else if(plantList[i].state == 12 ) {
-				this.sprite.animations.add('q2', [0, 1, 2, 3], 8, true);
-				this.sprite.play('q2');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-			}
-			else if(plantList[i].state == 13 ) {
-				this.sprite.animations.add('q3', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-				this.sprite.play('q3');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-
-			}else if(plantList[i].state == 14 ) {
-				this.sprite.animations.add('q4', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, true);
-				this.sprite.play('q4');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-
-			}else if(plantList[i].state == 15 ) {
-				this.sprite.animations.add('q5', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-				this.sprite.play('q5');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-
-			}else if(plantList[i].state == 16 ) {
-				this.sprite.animations.add('q6', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-				this.sprite.play('q6');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-
-			}
-			else {
-				this.sprite.animations.add('q0', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
-				this.sprite.play('q0');
-
-				this.warning = game.add.sprite(plantList[i].xLocation, 365, 'warning');
-				game.physics.enable(this.warning);
-				allSprites.push(this.warning);
-
-			}
-
 		}
     },
 
